@@ -63,6 +63,39 @@ public class Input {
         return value;
     }
 
+    public static double readDouble(String message) {
+
+        boolean done = false;
+        double value = 0;
+        int c = 0;
+
+        while (!done) {
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Double Input");
+            dialog.setHeaderText("Double Input");
+            dialog.setContentText(message);
+
+            Optional<String> result = dialog.showAndWait();
+
+            if (result.isPresent() && result.get().trim().length() > 0) {
+
+                String temp = result.get().trim();
+
+                try {
+                    value = Double.parseDouble(temp);
+                    done = true;
+                } catch (NumberFormatException e) {
+                    if (c == 0) {
+                        message = "Enter a valid double\n" + message;
+                    }
+                }
+            }
+            c++;
+        }
+
+        return value;
+    }
+
     public static boolean readBoolean(String message) {
         return readBoolean(message, "Yes", "No");
     }

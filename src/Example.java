@@ -2,9 +2,10 @@ import io.Input;
 import io.Output;
 import io.Window;
 import javafx.application.Application;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class AverageOf5 extends Application {
+public class Example extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
